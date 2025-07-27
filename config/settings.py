@@ -34,7 +34,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'https://*.codeinstitute-ide.net/',
     '.herokuapp.com',
+    '127.0.0.1',
 ]
 
 
