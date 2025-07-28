@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Views Part 1</title>
+    </head>
+
+    <body>
+        <h1>Plans list</h1>
+        {% for plan in object_list %}
+        <h2>{{plan.title}}</h2>
+        <p>Author: {{plan.author}}</p>
+        <p>Primary building: {{plan.primary_building}}</p>
+        <p>
+            Secondary buildings: {{plan.secondary_building_1}},
+            {{plan.secondary_building_2}}, {{plan.secondary_building_3}}
+        </p>
+        {% endfor %}
+    </body>
+</html>
