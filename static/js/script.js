@@ -1,1 +1,1 @@
-console.log("Life, The Universe and Everything!");
+console.log("Primary building:", "{{ plan.primary_building }}");

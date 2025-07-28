@@ -1,23 +1,39 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
 
 <!-- index.html content starts here -->
 <div class="container-fluid">
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
+            {% for plan in plan_list %}
             <div class="row">
-                {% for plan in plan_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
+                                {% if "GH" in plan.primary_building.primary_building %}
+                                <img class="card-img-top" src="{% static 'images/primary_building/great_hall.png' %}"
+                                    alt="Great Hall">
+                                {% elif "MK" in plan.primary_building.primary_building %}
+                                <img class="card-img-top" src="{% static 'images/primary_building/market.png' %}"
+                                    alt="Market">
+                                {% elif "MN" in plan.primary_building.primary_building %}
+                                <img class="card-img-top" src="{% static 'images/primary_building/monastery.png' %}"
+                                    alt="Monastery">
+                                {% elif "LP" in plan.primary_building.primary_building %}
+                                <img class="card-img-top" src="{% static 'images/primary_building/longphort.png' %}"
+                                    alt="Longphort">
+                                {% else %}
+                                <img class="card-img-top" src="{% static 'images/primary_building/great_hall.png' %}"
+                                    alt="Great Hall">
+                                {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">
-                                        Author: {{ plan.author }}
-                                    </p>
+                                    <p class="author">Author: {{ plan.author }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
+                            <a href="{% url 'plan_detail' plan.slug %}" class="plan-link">
                                 <h2 class="card-title">{{ plan.title }}</h2>
                             </a>
 
@@ -28,11 +44,11 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
             </div>
-            <div class="row">{% endif %} {% endfor %}</div>
+            {% endfor %}
         </div>
     </div>
+</div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
