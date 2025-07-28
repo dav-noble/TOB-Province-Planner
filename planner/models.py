@@ -20,6 +20,9 @@ class Primary(models.Model):
 
     primary_building = models.CharField(max_length=2, choices=PRIMARY, default=EMPTY)
 
+    def __str__(self):
+        return f"{self.primary_building}"
+
 
 class Secondary(models.Model):
     EMPTY = "EM"
@@ -62,6 +65,9 @@ class Secondary(models.Model):
     ]
 
     secondary_building = models.CharField(max_length=2, choices=SECONDARY, default=EMPTY)
+
+    def __str__(self):
+        return f"{self.secondary_building}"
 
 
 class Plan(models.Model):

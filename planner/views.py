@@ -6,4 +6,5 @@ from .models import Plan
 
 class PlanList(generic.ListView):
     queryset = Plan.objects.all()
-    template_name = "plan_list.html"
+    template_name = "planner/index.html"
+    paginate_by = 6
