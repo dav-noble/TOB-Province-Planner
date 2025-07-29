@@ -10,22 +10,27 @@
                 <!-- Post author goes before the | the post's created date goes after -->
                 <p class="post-subtitle">{{ plan.author }} | {{ plan.created_on }}</p>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/primary_building/great_hall.png' %}" class="scale" alt="placeholder">
-            </div>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text">
-                </p>
-            </div>
+<div class="container mt-5">
+    <div class='d-flex justify-content-around align-items-center'>
+        <div>
+            <img src="{% static 'images/primary_building/' %}{{ plan.primary_building.primary_building|lower }}.png" alt="{{ plan.primary_building.primary_building }}">
+            <p></p>
+        </div>
+        <div>
+            <img src="{% static 'images/secondary_building/' %}{{ plan.secondary_building_1.secondary_building|lower }}.png" alt="{{ plan.secondary_building_1.secondary_building }}">
+            <p></p>
+        </div>
+        <div>
+            <img src="{% static 'images/secondary_building/' %}{{ plan.secondary_building_2.secondary_building|lower }}.png" alt="{{ plan.secondary_building_2.secondary_building }}">
+            <p></p>
+        </div>
+        <div>
+            <img src="{% static 'images/secondary_building/' %}{{ plan.secondary_building_3.secondary_building|lower }}.png" alt="{{ plan.secondary_building_3.secondary_building }}">
+            <p></p>
         </div>
     </div>
 </div>

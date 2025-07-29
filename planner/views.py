@@ -5,9 +5,14 @@ from .models import Plan
 
 
 class PlanList(generic.ListView):
-    queryset = Plan.objects.all()
     template_name = "planner/index.html"
     paginate_by = 6
+
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return Plan.objects.filter(author=self.request.user)
+        else:
+            return Plan.objects.none()
 
 
 def plan_detail(request, slug):
