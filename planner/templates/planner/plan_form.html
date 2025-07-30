@@ -6,6 +6,10 @@
 <div class="container">
     <form id="commentForm" method="post" style="margin-top: 1.3em;">
         {{ plan_form | crispy }}
+        {{ primary_form | crispy }}
+        {{ secondary_form_1 | crispy }}
+        {{ secondary_form_2 | crispy }}
+        {{ secondary_form_3 | crispy }}
         {% csrf_token %}
         <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
     </form>
