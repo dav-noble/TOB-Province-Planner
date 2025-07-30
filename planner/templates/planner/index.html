@@ -18,7 +18,7 @@
             {% else %}
             <div class="d-flex flex-column justify-content-center align-items-center">
                 <p class='text-center'>Create a new province plan</p>
-                <a class="btn btn-primary" href="{% url 'account_signup' %}" role="button">New Province</a>
+                <a class="btn btn-primary" href="{% url 'plan_form' %}" role="button">New Province</a>
             </div>
             {% endif %}
             {% for plan in plan_list %}

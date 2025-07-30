@@ -1,6 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Plan
+from .forms import PlanForm
+from django.contrib import messages
+
+
 # Create your views here.
 
 
@@ -36,4 +40,41 @@ def plan_detail(request, slug):
         request,
         "planner/plan_detail.html",
         {"plan": plan},
+    )
+
+
+def plan_form(request):
+
+    plan_form = PlanForm()
+
+    if request.method == "POST":
+        plan_form = PlanForm(data=request.POST)
+        if plan_form.is_valid():
+            plan = plan_form.save(commit=False)
+            plan.author = request.user
+            
+            title = plan.title
+            title_words = title.split()
+            slug = "-".join(title_words)
+            plan.slug = slug
+
+            plan.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+            )
+        else:
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Invalid'
+            )
+
+    plan_form = PlanForm()
+
+    return render(
+        request,
+        "planner/plan_form.html",
+        {
+            "plan_form": plan_form,
+        }
     )
