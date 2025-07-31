@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from .models import Plan
 from .forms import PlanForm, PrimaryForm, SecondaryForm1, SecondaryForm2, SecondaryForm3
@@ -117,3 +117,11 @@ def plan_form(request, slug=None):
             "secondary_form_3": secondary_form_3,
         }
     )
+
+
+def plan_delete(request, slug):
+    plan = get_object_or_404(Plan, slug=slug)
+    if request.method == "POST":
+        plan.delete()
+        messages.success(request, "Plan deleted successfully.")
+        return redirect("home")
