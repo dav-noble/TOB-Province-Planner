@@ -44,13 +44,26 @@ def plan_detail(request, slug):
     )
 
 
-def plan_form(request):
+def plan_form(request, slug=None):
+    if slug:
+        plan = get_object_or_404(Plan, slug=slug)
+        primary_instance = plan.primary_building
+        secondary_instance_1 = plan.secondary_building_1
+        secondary_instance_2 = plan.secondary_building_2
+        secondary_instance_3 = plan.secondary_building_3
+    else:
+        plan = None
+        primary_instance = None
+        secondary_instance_1 = None
+        secondary_instance_2 = None
+        secondary_instance_3 = None
+
     if request.method == "POST":
-        plan_form = PlanForm(data=request.POST)
-        primary_form = PrimaryForm(data=request.POST)
-        secondary_form_1 = SecondaryForm1(data=request.POST, prefix="sec1")
-        secondary_form_2 = SecondaryForm2(data=request.POST, prefix="sec2")
-        secondary_form_3 = SecondaryForm3(data=request.POST, prefix="sec3")
+        plan_form = PlanForm(data=request.POST, instance=plan)
+        primary_form = PrimaryForm(data=request.POST, instance=primary_instance)
+        secondary_form_1 = SecondaryForm1(data=request.POST, prefix="sec1", instance=secondary_instance_1)
+        secondary_form_2 = SecondaryForm2(data=request.POST, prefix="sec2", instance=secondary_instance_2)
+        secondary_form_3 = SecondaryForm3(data=request.POST, prefix="sec3", instance=secondary_instance_3)
 
         if plan_form.is_valid():
             plan = plan_form.save(commit=False)
@@ -87,11 +100,11 @@ def plan_form(request):
                 'Invalid Plan'
             )
     else:
-        plan_form = PlanForm()
-        primary_form = PrimaryForm()
-        secondary_form_1 = SecondaryForm1(prefix="sec1")
-        secondary_form_2 = SecondaryForm2(prefix="sec2")
-        secondary_form_3 = SecondaryForm3(prefix="sec3")
+        plan_form = PlanForm(instance=plan)
+        primary_form = PrimaryForm(instance=primary_instance)
+        secondary_form_1 = SecondaryForm1(prefix="sec1", instance=secondary_instance_1)
+        secondary_form_2 = SecondaryForm2(prefix="sec2", instance=secondary_instance_2)
+        secondary_form_3 = SecondaryForm3(prefix="sec3", instance=secondary_instance_3)
 
     return render(
         request,
