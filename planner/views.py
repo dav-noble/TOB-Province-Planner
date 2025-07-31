@@ -44,15 +44,13 @@ def plan_detail(request, slug):
 
 
 def plan_form(request):
-
-    plan_form = PlanForm()
-    primary_form = PrimaryForm()
-    secondary_form_1 = SecondaryForm1()
-    secondary_form_2 = SecondaryForm2()
-    secondary_form_3 = SecondaryForm3()
-
     if request.method == "POST":
         plan_form = PlanForm(data=request.POST)
+        primary_form = PrimaryForm(data=request.POST)
+        secondary_form_1 = SecondaryForm1(data=request.POST, prefix="sec1")
+        secondary_form_2 = SecondaryForm2(data=request.POST, prefix="sec2")
+        secondary_form_3 = SecondaryForm3(data=request.POST, prefix="sec3")
+
         if plan_form.is_valid():
             plan = plan_form.save(commit=False)
             plan.author = request.user
@@ -62,37 +60,35 @@ def plan_form(request):
             slug = "-".join(title_words)
             plan.slug = slug
 
-            primary_form = PrimaryForm(data=request.POST)
             if primary_form.is_valid():
-                primary = primary_form.save()
-                plan.primary_building = primary
+                plan.primary_building = primary_form.save()
             
-            secondary_form_1 = SecondaryForm1(data=request.POST, prefix="sec1")
-            secondary_form_2 = SecondaryForm2(data=request.POST, prefix="sec2")
-            secondary_form_3 = SecondaryForm3(data=request.POST, prefix="sec3")
             if secondary_form_1.is_valid():
-                secondary_1 = secondary_form_1.save()
-                plan.secondary_building_1 = secondary_1
+                plan.secondary_building_1 = secondary_form_1.save()
+            
             if secondary_form_2.is_valid():
-                secondary_2 = secondary_form_2.save()
-                plan.secondary_building_2 = secondary_2
+                plan.secondary_building_2 = secondary_form_2.save()
+            
             if secondary_form_3.is_valid():
-                secondary_3 = secondary_form_3.save()
-                plan.secondary_building_3 = secondary_3
-
+                plan.secondary_building_3 = secondary_form_3.save()
+            
             plan.save()
             
             messages.add_message(
                 request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
+                'Plan submitted'
             )
         else:
             messages.add_message(
                 request, messages.SUCCESS,
-                'Invalid'
+                'Invalid Plan'
             )
-
-    plan_form = PlanForm()
+    else:
+        plan_form = PlanForm()
+        primary_form = PrimaryForm()
+        secondary_form_1 = SecondaryForm1(prefix="sec1")
+        secondary_form_2 = SecondaryForm2(prefix="sec2")
+        secondary_form_3 = SecondaryForm3(prefix="sec3")
 
     return render(
         request,
