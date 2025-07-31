@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from .models import Plan
 from .forms import PlanForm, PrimaryForm, SecondaryForm1, SecondaryForm2, SecondaryForm3
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -76,8 +77,10 @@ def plan_form(request):
             
             messages.add_message(
                 request, messages.SUCCESS,
-                'Plan submitted'
+                'Plan submitted successfully'
             )
+
+            return HttpResponseRedirect(reverse('plan_detail', args=[slug]))
         else:
             messages.add_message(
                 request, messages.SUCCESS,
