@@ -17,22 +17,57 @@
 </div>
 
 <div class="container mt-5">
-    <div class='d-flex justify-content-around align-items-center'>
-        <div>
-            <img src="{% static 'images/primary_building/' %}{{ plan.primary_building.primary_building|lower }}.png" alt="{{ plan.primary_building.primary_building }}">
-            <p></p>
+    <div class='d-flex justify-content-between align-items-top mb-5'>
+        <div class='d-flex justify-content-start'>
+            <div class='details-width'>
+                <p><strong>{{ plan.primary_building.get_primary_building_display }}</strong></p>
+                <img id="primary_building_image" src="{% static 'images/primary_building/' %}{{ plan.primary_building.primary_building|lower }}.png" alt="{{ plan.primary_building.get_primary_building_display }}">
+                <p id="primary_building_details"></p>
+            </div>
         </div>
-        <div>
-            <img src="{% static 'images/secondary_building/' %}{{ plan.secondary_building_1.secondary_building|lower }}.png" alt="{{ plan.secondary_building_1.secondary_building }}">
-            <p></p>
+        <div class='d-flex justify-content-end gap-2'>
+            <div class='details-width'>
+                <p><strong>{{ plan.tertiary_building_1.get_tertiary_building_display }}</strong></p>
+                <img id="tertiary_building_1_image" src="{% static 'images/tertiary_building/' %}{{ plan.tertiary_building_1.tertiary_building|lower }}.png" alt="{{ plan.tertiary_building_1.get_tertiary_building_display }}">
+                <p id="tertiary_building_1_details"></p>
+            </div>
+            <div class='details-width'>
+                <p><strong>{{ plan.tertiary_building_2.get_tertiary_building_display }}</strong></p>
+                <img id="tertiary_building_2_image" src="{% static 'images/tertiary_building/' %}{{ plan.tertiary_building_2.tertiary_building|lower }}.png" alt="{{ plan.tertiary_building_2.get_tertiary_building_display }}">
+                <p id="tertiary_building_2_details"></p>
+            </div>
+            <div class='details-width'>
+                <p><strong>{{ plan.tertiary_building_3.get_tertiary_building_display }}</strong></p>
+                <img id="tertiary_building_3_image" src="{% static 'images/tertiary_building/' %}{{ plan.tertiary_building_3.tertiary_building|lower }}.png" alt="{{ plan.tertiary_building_3.get_tertiary_building_display }}">
+                <p id="tertiary_building_3_details"></p>
+            </div>
+            <div class='details-width'>
+                <p><strong>{{ plan.tertiary_building_4.get_tertiary_building_display }}</strong></p>
+                <img id="tertiary_building_4_image" src="{% static 'images/tertiary_building/' %}{{ plan.tertiary_building_4.tertiary_building|lower }}.png" alt="{{ plan.tertiary_building_4.get_tertiary_building_display }}">
+                <p id="tertiary_building_4_details"></p>
+            </div>
+            <div class='details-width'>
+                <p><strong>{{ plan.tertiary_building_5.get_tertiary_building_display }}</strong></p>
+                <img id="tertiary_building_5_image" src="{% static 'images/tertiary_building/' %}{{ plan.tertiary_building_5.tertiary_building|lower }}.png" alt="{{ plan.tertiary_building_5.get_tertiary_building_display }}">
+                <p id="tertiary_building_5_details"></p>
+            </div>
         </div>
-        <div>
-            <img src="{% static 'images/secondary_building/' %}{{ plan.secondary_building_2.secondary_building|lower }}.png" alt="{{ plan.secondary_building_2.secondary_building }}">
-            <p></p>
+    </div>
+    <div class='d-flex justify-content-start align-items-top gap-2'>
+        <div class='details-width'>
+            <p><strong>{{ plan.secondary_building_1.get_secondary_building_display }}</strong></p>
+            <img id="secondary_building_1_image" src="{% static 'images/secondary_building/' %}{{ plan.secondary_building_1.secondary_building|lower }}.png" alt="{{ plan.secondary_building_1.get_secondary_building_display }}">
+            <p id="secondary_building_1_details"></p>
         </div>
-        <div>
-            <img src="{% static 'images/secondary_building/' %}{{ plan.secondary_building_3.secondary_building|lower }}.png" alt="{{ plan.secondary_building_3.secondary_building }}">
-            <p></p>
+        <div class='details-width'>
+            <p><strong>{{ plan.secondary_building_2.get_secondary_building_display }}</strong></p>
+            <img id="secondary_building_2_image" src="{% static 'images/secondary_building/' %}{{ plan.secondary_building_2.secondary_building|lower }}.png" alt="{{ plan.secondary_building_2.get_secondary_building_display }}">
+            <p id="secondary_building_2_details"></p>
+        </div>
+        <div class='details-width'>
+            <p><strong>{{ plan.secondary_building_3.get_secondary_building_display }}</strong></p>
+            <img id="secondary_building_3_image" src="{% static 'images/secondary_building/' %}{{ plan.secondary_building_3.secondary_building|lower }}.png" alt="{{ plan.secondary_building_3.get_secondary_building_display }}">
+            <p id="secondary_building_3_details"></p>
         </div>
     </div>
 </div>
@@ -69,6 +104,7 @@
   </div>
 </div>
 
+<script src="{% static 'js/plan_detail.js' %}"></script>
 {% endblock content %}
 
 {% block copyright %}

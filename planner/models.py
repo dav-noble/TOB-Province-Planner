@@ -70,6 +70,73 @@ class Secondary(models.Model):
         return f"{self.get_secondary_building_display()}"
 
 
+class Tertiary(models.Model):
+    EMPTY = "EM"
+    ALEHOUSE = "AH"
+    ARENA = "AR"
+    ARTISANS = "AT"
+    BULLAUN = "BL"
+    CHURCH_CRAFTS = "CC"
+    CHURCH = "CH"
+    CRAFT_MERCHANT = "CM"
+    ESTATE = "ES"
+    FORGE = "FG"
+    GARRISON = "GA"
+    GRANARY = "GR"
+    HERRING_PORT = "HP"
+    LIBRARY = "LB"
+    MARKET_FAIR = "MF"
+    MERCHANT = "MR"
+    MILL = "MI"
+    MINT = "MT"
+    MOOT_HILL = "MH"
+    PORT = "PT"
+    ROUND_TOWER = "RT"
+    SCRIBES = "SC"
+    TANNER = "TA"
+    TITHE_HALL = "TH"
+    TOOLS = "TL"
+    TRADE_PORT = "TP"
+    VIKING_PORT = "VP"
+    WAREHOUSE = "WH"
+    WORKSHOP = "WK"
+    TERTIARY = [
+        (EMPTY, "Empty"),
+        (ALEHOUSE, "Alehouse"),
+        (ARENA, "Arena"),
+        (ARTISANS, "Artisans"),
+        (BULLAUN, "Bullaun"),
+        (CHURCH_CRAFTS, "Church Crafts"),
+        (CHURCH, "Church"),
+        (CRAFT_MERCHANT, "Craft Merchant"),
+        (ESTATE, "Estate"),
+        (FORGE, "Forge"),
+        (GARRISON, "Garrison"),
+        (GRANARY, "Granary"),
+        (HERRING_PORT, "Herring Port"),
+        (LIBRARY, "Library"),
+        (MARKET_FAIR, "Market Fair"),
+        (MERCHANT, "Merchant"),
+        (MILL, "Mill"),
+        (MINT, "Mint"),
+        (MOOT_HILL, "Moot Hill"),
+        (PORT, "Port"),
+        (ROUND_TOWER, "Round Tower"),
+        (SCRIBES, "Scribes"),
+        (TANNER, "Tanner"),
+        (TITHE_HALL, "Tithe Hall"),
+        (TOOLS, "Tools"),
+        (TRADE_PORT, "Trade Port"),
+        (VIKING_PORT, "Viking Port"),
+        (WAREHOUSE, "Warehouse"),
+        (WORKSHOP, "Workshop"),
+    ]
+
+    tertiary_building = models.CharField(max_length=2, choices=TERTIARY, default=EMPTY)
+
+    def __str__(self):
+        return f"{self.get_tertiary_building_display()}"
+
 class Plan(models.Model):
 
     title = models.CharField(max_length=200, unique=True)
@@ -97,6 +164,31 @@ class Plan(models.Model):
         Secondary,
         on_delete=models.CASCADE,
         related_name="secondary_building_3_of"
+    )
+    tertiary_building_1 = models.ForeignKey(
+        Tertiary,
+        on_delete=models.CASCADE,
+        related_name="tertiary_building_1_of"
+    )
+    tertiary_building_2 = models.ForeignKey(
+        Tertiary,
+        on_delete=models.CASCADE,
+        related_name="tertiary_building_2_of"
+    )
+    tertiary_building_3 = models.ForeignKey(
+        Tertiary,
+        on_delete=models.CASCADE,
+        related_name="tertiary_building_3_of"
+    )
+    tertiary_building_4 = models.ForeignKey(
+        Tertiary,
+        on_delete=models.CASCADE,
+        related_name="tertiary_building_4_of"
+    )
+    tertiary_building_5 = models.ForeignKey(
+        Tertiary,
+        on_delete=models.CASCADE,
+        related_name="tertiary_building_5_of"
     )
     
     class Meta:

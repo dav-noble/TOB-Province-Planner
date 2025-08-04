@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Plan
-from .models import Primary
-from .models import Secondary
+from .models import Plan, Primary, Secondary, Tertiary
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -16,3 +14,4 @@ class PlanAdmin(SummernoteModelAdmin):
 
 admin.site.register(Primary)
 admin.site.register(Secondary)
+admin.site.register(Tertiary)

@@ -1,4 +1,4 @@
-from .models import Plan, Primary, Secondary
+from .models import Plan, Primary, Secondary, Tertiary
 from django import forms
 
 
@@ -39,4 +39,44 @@ class SecondaryForm3(forms.ModelForm):
         model = Secondary
         fields = (
             'secondary_building',
+        )
+
+
+class TertiaryForm1(forms.ModelForm):
+    class Meta:
+        model = Tertiary
+        fields = (
+            'tertiary_building',
+        )
+
+
+class TertiaryForm2(forms.ModelForm):
+    class Meta:
+        model = Tertiary
+        fields = (
+            'tertiary_building',
+        )
+
+
+class TertiaryForm3(forms.ModelForm):
+    class Meta:
+        model = Tertiary
+        fields = (
+            'tertiary_building',
+        )
+
+
+class TertiaryForm4(forms.ModelForm):
+    class Meta:
+        model = Tertiary
+        fields = (
+            'tertiary_building',
+        )
+
+
+class TertiaryForm5(forms.ModelForm):
+    class Meta:
+        model = Tertiary
+        fields = (
+            'tertiary_building',
         )

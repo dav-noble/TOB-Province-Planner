@@ -1,1 +1,0 @@
-console.log("Primary building:", "{{ plan.primary_building }}");
