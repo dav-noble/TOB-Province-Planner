@@ -147,5 +147,11 @@ p {
 }
 
 .details-width {
-    width: 175px;
+    width: auto;
+}
+
+@media screen and (min-width: 1024px) {
+    .details-width {
+        width: 175px;
+    }
 }
