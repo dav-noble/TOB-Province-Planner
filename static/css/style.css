@@ -1,16 +1,25 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Headland+One&display=swap');
+
 body {
     background-color: #f9fafc;
-}
-
-p {
-    margin-bottom: 0;
+    font-family: "Headland One", serif;
 }
 
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #4a4a4f;
+    color: #ffffff;
+}
+
+.logo {
+    width: 50vw;
+    min-width: 300px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
 }
 
 .red-o {
@@ -26,11 +35,11 @@ p {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: rgb(69, 79, 88);
 }
 
 .main-bg {
-    background-color: #f9fafc;
+    background-color: #e2e5ec;
 }
 
 .card {
@@ -42,14 +51,6 @@ p {
     position: relative;
     width: 150px;
     height: 150px;
-}
-
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .scale {
@@ -65,7 +66,6 @@ p {
 
 .masthead {
     margin-top: 10px;
-    overflow: hidden;
     position: relative;
     display: inline-block;
     height: 10vh;
@@ -148,6 +148,12 @@ p {
 
 .details-width {
     width: auto;
+}
+
+#planForm select {
+    max-width: 250px; /* or your preferred width */
+    width: 100%;
+    display: inline-block;
 }
 
 @media screen and (min-width: 1024px) {

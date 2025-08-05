@@ -8,17 +8,21 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             {% if user.is_authenticated == False %}
-            <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex flex-column align-items-center">
+                <img class="logo" src="{% static 'images/thrones_of_britannia_logo_large.png' %}" alt="Thrones of Britannia">
+                <p class="logo-text">PROVINCE PLANNER</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center mt-5">
                 <p class='text-center'>Sign up here to begin creating new plans</p>
-                <a class="btn btn-primary" href="{% url 'account_signup' %}" role="button">Sign Up</a>
+                <a class="btn btn-dark" href="{% url 'account_signup' %}" role="button">Sign Up</a>
                 <br>
                 <p class='text-center'>If you already have an account, login here</p>
-                <a class="btn btn-primary" href="{% url 'account_login' %}" role="button">Login</a>
+                <a class="btn btn-dark" href="{% url 'account_login' %}" role="button">Login</a>
             </div>
             {% else %}
             <div class="d-flex flex-column justify-content-center align-items-center mb-4">
                 <p class='text-center'>Create a new province plan</p>
-                <a class="btn btn-primary" href="{% url 'plan_form' %}" role="button">New Province</a>
+                <a class="btn btn-dark" href="{% url 'plan_form' %}" role="button">New Province</a>
             </div>
             {% endif %}
             {% for plan in plan_list %}
@@ -30,9 +34,6 @@
                             <div class="image-container">
                                 <img class="card-img-top" src="{% static 'images/primary_building/' %}{{ plan.primary_building.primary_building|lower }}.png"
                                     alt="{{ plan.primary_building.primary_building }}">
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ plan.author }}</p>
-                                </div>
                             </div>
                             <a href="{% url 'plan_detail' plan.slug %}" class="plan-link">
                                 <h2 class="card-title">{{ plan.title }}</h2>
