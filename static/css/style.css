@@ -3,7 +3,10 @@
 
 body {
     background-color: #f9fafc;
-    font-family: "Headland One", serif;
+}
+
+p {
+    margin-bottom: 0.5rem;
 }
 
 .brand {
@@ -20,6 +23,7 @@ body {
 
 .logo-text {
     font-size: 1.8rem;
+    font-family: "Headland One", serif;
 }
 
 .red-o {
@@ -151,7 +155,7 @@ body {
 }
 
 #planForm select {
-    max-width: 250px; /* or your preferred width */
+    max-width: 250px;
     width: 100%;
     display: inline-block;
 }

@@ -5,14 +5,13 @@
 <!-- index.html content starts here -->
 <div class="container-fluid">
     <div class="row">
-        <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             {% if user.is_authenticated == False %}
             <div class="d-flex flex-column align-items-center">
                 <img class="logo" src="{% static 'images/thrones_of_britannia_logo_large.png' %}" alt="Thrones of Britannia">
                 <p class="logo-text">PROVINCE PLANNER</p>
             </div>
-            <div class="d-flex flex-column justify-content-center align-items-center mt-5">
+            <div class="d-flex flex-column justify-content-center align-items-center mt-5 mb-5">
                 <p class='text-center'>Sign up here to begin creating new plans</p>
                 <a class="btn btn-dark" href="{% url 'account_signup' %}" role="button">Sign Up</a>
                 <br>
