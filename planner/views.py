@@ -48,16 +48,22 @@ def plan_detail(request, slug):
     queryset = Plan.objects.all()
     plan = get_object_or_404(queryset, slug=slug)
 
+    is_author = request.user == plan.author
+
     return render(
         request,
         "planner/plan_detail.html",
-        {"plan": plan},
+        {"plan": plan, "is_author": is_author},
     )
 
 
 def plan_form(request, slug=None):
     if slug:
         plan = get_object_or_404(Plan, slug=slug)
+        # Check if the user is the author
+        if request.user != plan.author:
+            messages.error(request, "You do not have permission to edit this plan.")
+            return redirect("plan_detail", slug=plan.slug)
         primary_instance = plan.primary_building
         secondary_instance_1 = plan.secondary_building_1
         secondary_instance_2 = plan.secondary_building_2
@@ -120,10 +126,10 @@ def plan_form(request, slug=None):
             if tertiary_form_3.is_valid():
                 plan.tertiary_building_3 = tertiary_form_3.save()
 
-            if tertiary_form_4 is not None and tertiary_form_4.is_valid():
+            if tertiary_form_4.is_valid():
                 plan.tertiary_building_4 = tertiary_form_4.save()
 
-            if tertiary_form_5 is not None and tertiary_form_5.is_valid():
+            if tertiary_form_5.is_valid():
                 plan.tertiary_building_5 = tertiary_form_5.save()
             
             is_edit = plan.pk is not None  # True if editing, False if creating

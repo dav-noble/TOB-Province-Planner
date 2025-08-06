@@ -3,6 +3,7 @@
 {% block content %}
 {% load static %}
 
+{% if is_author %}
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
@@ -117,7 +118,8 @@
         </div>
     </div>
 </div>
-
+{% else %}
+{% endif %}
 
 <!-- Modal Structure -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
