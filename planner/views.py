@@ -94,7 +94,6 @@ def plan_form(request, slug=None):
         if plan_form.is_valid():
             plan = plan_form.save(commit=False)
             plan.author = request.user
-            
             title = plan.title
             title_words = title.split()
             slug = "-".join(title_words)
@@ -121,18 +120,26 @@ def plan_form(request, slug=None):
             if tertiary_form_3.is_valid():
                 plan.tertiary_building_3 = tertiary_form_3.save()
 
-            if tertiary_form_4.is_valid():
+            if tertiary_form_4 is not None and tertiary_form_4.is_valid():
                 plan.tertiary_building_4 = tertiary_form_4.save()
 
-            if tertiary_form_5.is_valid():
+            if tertiary_form_5 is not None and tertiary_form_5.is_valid():
                 plan.tertiary_building_5 = tertiary_form_5.save()
             
+            is_edit = plan.pk is not None  # True if editing, False if creating
+
             plan.save()
-            
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Plan submitted successfully'
-            )
+
+            if is_edit:
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    'Plan updated successfully'
+                )
+            else:
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    'Plan submitted successfully'
+                )
 
             return HttpResponseRedirect(reverse('plan_detail', args=[slug]))
         else:
