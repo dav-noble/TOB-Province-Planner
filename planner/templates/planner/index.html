@@ -31,8 +31,10 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                <img class="card-img-top" src="{% static 'images/primary_building/' %}{{ plan.primary_building.primary_building|lower }}.png"
-                                    alt="{{ plan.primary_building.primary_building }}">
+                                <a href="{% url 'plan_detail' plan.slug %}">
+                                    <img class="card-img-top" src="{% static 'images/primary_building/' %}{{ plan.primary_building.primary_building|lower }}.png"
+                                        alt="{{ plan.primary_building.primary_building }}">
+                                </a>
                             </div>
                             <a href="{% url 'plan_detail' plan.slug %}" class="plan-link">
                                 <h2 class="card-title">{{ plan.title }}</h2>
