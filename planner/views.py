@@ -48,12 +48,14 @@ def plan_detail(request, slug):
     queryset = Plan.objects.all()
     plan = get_object_or_404(queryset, slug=slug)
 
-    is_author = request.user == plan.author
+    if request.user != plan.author:
+        messages.error(request, "You do not have permission to view this plan.")
+        return redirect("home")
 
     return render(
         request,
         "planner/plan_detail.html",
-        {"plan": plan, "is_author": is_author},
+        {"plan": plan},
     )
 
 
@@ -63,7 +65,7 @@ def plan_form(request, slug=None):
         # Check if the user is the author
         if request.user != plan.author:
             messages.error(request, "You do not have permission to edit this plan.")
-            return redirect("plan_detail", slug=plan.slug)
+            return redirect("home")
         primary_instance = plan.primary_building
         secondary_instance_1 = plan.secondary_building_1
         secondary_instance_2 = plan.secondary_building_2
