@@ -18,7 +18,11 @@ class Primary(models.Model):
         (LONGPHORT, 'Longphort'),
     ]
 
-    primary_building = models.CharField(max_length=2, choices=PRIMARY, default=EMPTY)
+    primary_building = models.CharField(
+        max_length=2,
+        choices=PRIMARY,
+        default=EMPTY
+        )
 
     def __str__(self):
         return f"{self.get_primary_building_display()}"
@@ -64,7 +68,11 @@ class Secondary(models.Model):
         (POTTERY, "Pottery"),
     ]
 
-    secondary_building = models.CharField(max_length=2, choices=SECONDARY, default=EMPTY)
+    secondary_building = models.CharField(
+        max_length=2,
+        choices=SECONDARY,
+        default=EMPTY
+        )
 
     def __str__(self):
         return f"{self.get_secondary_building_display()}"
@@ -132,10 +140,15 @@ class Tertiary(models.Model):
         (WORKSHOP, "Workshop"),
     ]
 
-    tertiary_building = models.CharField(max_length=2, choices=TERTIARY, default=EMPTY)
+    tertiary_building = models.CharField(
+        max_length=2,
+        choices=TERTIARY,
+        default=EMPTY
+        )
 
     def __str__(self):
         return f"{self.get_tertiary_building_display()}"
+
 
 class Plan(models.Model):
 
@@ -190,7 +203,7 @@ class Plan(models.Model):
         on_delete=models.CASCADE,
         related_name="tertiary_building_5_of"
     )
-    
+
     class Meta:
         ordering = ["-created_on"]
 
