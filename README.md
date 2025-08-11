@@ -5,7 +5,7 @@
 ### Colour Palette
 I chose a simple monochrome colour scheme for the website. The icons for the buildings in the planner itself provide more colour and vibrancy.
 
-![Colour Palette](<assets/images/readme/TOB Province Planner palette.png>)
+![Colour Palette](<assets/images/readme/province-planner-coolers.png>)
 
 ### Wireframes
 
