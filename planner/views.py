@@ -21,11 +21,15 @@ class PlanList(generic.ListView):
     """
     Returns all plans created by the user and displays
     them in pages of 6 plans at a time
-    
+
     **Context**
 
     ``paginate_by``
         Number of posts per page.
+
+    **Template:**
+
+    :template:`planner/index.html`
     """
     template_name = "planner/index.html"
     paginate_by = 6
@@ -45,6 +49,8 @@ def plan_detail(request, slug):
 
     ``plan``
         An instance of :model:`planner.Plan`.
+    ``queryset``
+
 
     **Template:**
 
@@ -76,6 +82,42 @@ def plan_form(request, slug=None):
 
     ``plan``
         An instance of :model:`planner.Plan`
+    ``primary_instance``
+        An instance of :model:`planner.Primary`
+    ``secondary_instance_1``
+    ``secondary_instance_2``
+    ``secondary_instance_3``
+        Instances of :model:`planner.Secondary`
+    ``tertiary_instance_1``
+    ``tertiary_instance_2``
+    ``tertiary_instance_3``
+    ``tertiary_instance_4``
+    ``tertiary_instance_5``
+        Instances of :model:`planner.Tertiary`
+    ``plan_form``
+        An instance of form :form:`planner.PlanForm`
+    ``primary_form``
+        An instance of form :form:`planner.PrimaryForm`
+    ``secondary_form_1``
+        An instance of form :form:`planner.SecondaryForm1`
+    ``secondary_form_2``
+        An instance of form :form:`planner.SecondaryForm2`
+    ``secondary_form_3``
+        An instance of form :form:`planner.SecondaryForm3`
+    ``tertiary_form_1``
+        An instance of form :form:`planner.TertiaryForm1`
+    ``tertiary_form_2``
+        An instance of form :form:`planner.TertiaryForm2`
+    ``tertiary_form_3``
+        An instance of form :form:`planner.TertiaryForm3`
+    ``tertiary_form_4``
+        An instance of form :form:`planner.TertiaryForm4`
+    ``tertiary_form_5``
+        An instance of form :form:`planner.TertiaryForm5`
+
+    **Template:**
+
+    :template:`planner/plan_form.html`
     """
     if slug:
         plan = get_object_or_404(Plan, slug=slug)
