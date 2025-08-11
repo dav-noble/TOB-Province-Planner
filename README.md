@@ -42,6 +42,11 @@ The Chrome Dev Tools Lighthouse was used to test performance, accessibility, bes
 
 <a href="./assets/images/readme/lighthouse-signup.png" target="_blank">signup.html</a>
 
+### Testing
+
+The site was thoroughly tested to make sure all links were functioning properly and the pages were responsive to different screen sizes. The results of the tests
+are shown <a href="https://docs.google.com/spreadsheets/d/1HD1odPErTh6_IvlrukNYchlnZoIuZD1ERMWiOSmXS3o/edit?usp=sharing>">here</a>.
+
 ### User Stories
 
 A review of the user stories for this project. The MVP has been achieved, with further functionality to be implemented outside of the project.
@@ -60,6 +65,6 @@ A review of the user stories for this project. The MVP has been achieved, with f
 
 ## Deployment
 
-## Credits
-
 ## AI Implementation
+
+## Credits
