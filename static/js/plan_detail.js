@@ -1,12 +1,12 @@
-let primaryDetailsList = {
+const primaryDetailsList = {
     "Empty": "",
     "Great Hall": "-100 Food production<br>+6 Public order<br>+25% Max number of all units in recruitment pool<br>Garrison",
     "Market": "-100 Food production<br>+6 Public order<br>+3 Supplies<br>+25% Income (Commerce)<br>Garrison",
     "Monastery": "-100 Food production<br>+8 Public order<br>+25% Income (Church)<br>Garrison",
     "Longphort": "-100 Food production<br>+6 Public order<br>+25% Max number of all units in recruitment pool<br>Garrison"
-}
+};
 
-let secondaryDetailsList = {
+const secondaryDetailsList = {
     "Empty": "",
     "Benedictine Abbey": "+10 Public order<br>+100 Income (Church)<br>+1 Religious Estates",
     "Beach Port": "+3 Supplies<br>+135 Income (Commerce)<br>+60 Food<br>+6% Trade (factionwide)<br>+20% Income (Commerce)(all regions in adjacent provinces)",
@@ -25,9 +25,9 @@ let secondaryDetailsList = {
     "Silver": "+30 Silver production<br>-8 Public order<br>+555 Income (Industry)<br>-20% Construction cost for Mint and Martyr's Mint building chains (all regions)",
     "Tin": "+30 Tin production<br>-10 Public order<br>+280 Income (Industry)<br>+80% Income from Copper building chains (all regions)",
     "Wood": "+30 Timber production<br>-20% Construction cost (all region in adjacent provinces)<br>+300 Income (Industry)",
-}
+};
 
-let tertiaryDetailsList = {
+const tertiaryDetailsList = {
     "Empty": "",
     "Alehouse": "-30 Food production<br>+3 Public order<br>+280 Income (Commerce)<br>+3 Unit morale (armies in province)",
     "Arena": "-200 Income<br>+100 XP for units per turn<br>+100% Unit replenishment (multiplier)",
@@ -57,7 +57,7 @@ let tertiaryDetailsList = {
     "Viking Port": "+15 Fame<br>+110 Income (Commerce)<br>+45% Income (Commerce)(local province)<br>Armour III: +15% Armour<br>Weapons III: +15% Melee damage",
     "Warehouse": "+60% Food production from Port building chains (local province)<br>+100% Income from Port building chains",
     "Workshop": "-3 Public order<br>+205 Income (Industry)",
-}
+};
 
 document.querySelector('#primary_building_details').innerHTML = primaryDetailsList[document.querySelector('#primary_building_image').alt];
 document.querySelector('#secondary_building_1_details').innerHTML = secondaryDetailsList[document.querySelector('#secondary_building_1_image').alt];
