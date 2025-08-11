@@ -5,7 +5,7 @@
 ### Colour Palette
 I chose a simple monochrome colour scheme for the website. The icons for the buildings in the planner itself provide more colour and vibrancy.
 
-![Colour Palette](<static/images/readme/TOB Province Planner palette.png>)
+![Colour Palette](<assets/images/readme/TOB Province Planner palette.png>)
 
 ### Wireframes
 
@@ -23,6 +23,28 @@ The style.css file has been passed through the CSS validator and passed with no 
 
 ### JS Hint
 The plan_details.js file has been passed through JS Hint and passed with no errors.
+
+### Lighthouse
+
+The Chrome Dev Tools Lighthouse was used to test performance, accessibility, best practises, and SEO for the site's pages.
+
+<a href="./assets/images/readme/lighthouse-index.png" target="_blank">index.html - logged out</a>
+
+<a href="./assets/images/readme/lighthouse-index-loggedin.png" target="_blank">index.html - logged in</a>
+
+<a href="./assets/images/readme/lighthouse-plandetail.png" target="_blank">plan_detail.html</a>
+
+<a href="./assets/images/readme/lighthouse-planform.png" target="_blank">plan_form.html</a>
+
+<a href="./assets/images/readme/lighthouse-login.png" target="_blank">login.html</a>
+
+<a href="./assets/images/readme/lighthouse-logout.png" target="_blank">logout.html</a>
+
+<a href="./assets/images/readme/lighthouse-signup.png" target="_blank">signup.html</a>
+
+### User Stories
+
+A review of the user stories for this project. The MVP has been achieved, with further functionality to be implemented outside of the project.
 
 | User Story | Implemented |
 |------------|-------------|
