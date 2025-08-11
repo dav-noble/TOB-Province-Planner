@@ -3,6 +3,9 @@ from .models import Plan, Primary, Secondary, Tertiary
 
 
 class PlanForm(forms.ModelForm):
+    """
+    Form class for users to create a new plan 
+    """
     class Meta:
         model = Plan
         fields = (
@@ -11,6 +14,9 @@ class PlanForm(forms.ModelForm):
 
 
 class PrimaryForm(forms.ModelForm):
+    """
+    Form class for users to create a new primary building for new plan 
+    """
     class Meta:
         model = Primary
         fields = (
@@ -19,6 +25,9 @@ class PrimaryForm(forms.ModelForm):
 
 
 class SecondaryForm1(forms.ModelForm):
+    """
+    Form class for users to create a new secondary building for new plan 
+    """
     class Meta:
         model = Secondary
         fields = (
@@ -27,6 +36,9 @@ class SecondaryForm1(forms.ModelForm):
 
 
 class SecondaryForm2(forms.ModelForm):
+    """
+    Form class for users to create a new secondary building for new plan 
+    """
     class Meta:
         model = Secondary
         fields = (
@@ -35,6 +47,9 @@ class SecondaryForm2(forms.ModelForm):
 
 
 class SecondaryForm3(forms.ModelForm):
+    """
+    Form class for users to create a new secondary building for new plan 
+    """
     class Meta:
         model = Secondary
         fields = (
@@ -43,6 +58,9 @@ class SecondaryForm3(forms.ModelForm):
 
 
 class TertiaryForm1(forms.ModelForm):
+    """
+    Form class for users to create a new tertiary building for new plan 
+    """
     class Meta:
         model = Tertiary
         fields = (
@@ -51,6 +69,9 @@ class TertiaryForm1(forms.ModelForm):
 
 
 class TertiaryForm2(forms.ModelForm):
+    """
+    Form class for users to create a new tertiary building for new plan 
+    """
     class Meta:
         model = Tertiary
         fields = (
@@ -59,6 +80,9 @@ class TertiaryForm2(forms.ModelForm):
 
 
 class TertiaryForm3(forms.ModelForm):
+    """
+    Form class for users to create a new tertiary building for new plan 
+    """
     class Meta:
         model = Tertiary
         fields = (
@@ -67,6 +91,9 @@ class TertiaryForm3(forms.ModelForm):
 
 
 class TertiaryForm4(forms.ModelForm):
+    """
+    Form class for users to create a new tertiary building for new plan 
+    """
     class Meta:
         model = Tertiary
         fields = (
@@ -75,6 +102,9 @@ class TertiaryForm4(forms.ModelForm):
 
 
 class TertiaryForm5(forms.ModelForm):
+    """
+    Form class for users to create a new tertiary building for new plan 
+    """
     class Meta:
         model = Tertiary
         fields = (

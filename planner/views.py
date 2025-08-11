@@ -18,6 +18,15 @@ from .forms import (
 
 
 class PlanList(generic.ListView):
+    """
+    Returns all plans created by the user and displays
+    them in pages of 6 plans at a time
+    
+    **Context**
+
+    ``paginate_by``
+        Number of posts per page.
+    """
     template_name = "planner/index.html"
     paginate_by = 6
 
@@ -60,6 +69,14 @@ def plan_detail(request, slug):
 
 
 def plan_form(request, slug=None):
+    """
+    Displays a form to create a new plan or edit an existing one.
+
+    **Context**
+
+    ``plan``
+        An instance of :model:`planner.Plan`
+    """
     if slug:
         plan = get_object_or_404(Plan, slug=slug)
         # Check if the user is the author
@@ -231,6 +248,14 @@ def plan_form(request, slug=None):
 
 
 def plan_delete(request, slug):
+    """
+    Delete an individual plan.
+
+    **Context**
+
+    ``plan``
+        An instance of :model:`planner.Plan`.
+    """
     plan = get_object_or_404(Plan, slug=slug)
     if request.method == "POST":
         plan.delete()

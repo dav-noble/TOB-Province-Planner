@@ -7,7 +7,10 @@ from .models import Plan, Primary, Secondary, Tertiary
 
 @admin.register(Plan)
 class PlanAdmin(SummernoteModelAdmin):
-
+    """
+    Lists fields for display in admin, fields for search,
+    and fields to prepopulate.
+    """
     list_display = ('title', 'slug', 'created_on')
     search_fields = ['title']
     prepopulated_fields = {'slug': ('title',)}

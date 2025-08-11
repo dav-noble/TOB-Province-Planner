@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 
 
 class Primary(models.Model):
+    """
+    Stores a single Primary entry related to :model:`planner.Plan`
+    """
     EMPTY = "EM"
     GREAT_HALL = "GH"
     MARKET = "MK"
@@ -29,6 +32,9 @@ class Primary(models.Model):
 
 
 class Secondary(models.Model):
+    """
+    Stores a single Secondary entry related to :model:`planner.Plan`
+    """
     EMPTY = "EM"
     BENEDICTINE_ABBEY = "BA"
     FARM = "FM"
@@ -79,6 +85,9 @@ class Secondary(models.Model):
 
 
 class Tertiary(models.Model):
+    """
+    Stores a single Tertiary entry related to :model:`planner.Plan`
+    """
     EMPTY = "EM"
     ALEHOUSE = "AH"
     ARENA = "AR"
@@ -151,7 +160,11 @@ class Tertiary(models.Model):
 
 
 class Plan(models.Model):
-
+    """
+    Stores a single Plan entry related to :model:`auth.User`,
+    :model:`planner.Primary`, :model:`planner.Secondary`, and
+    :model:`planner.Tertiary`
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
