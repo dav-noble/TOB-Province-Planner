@@ -1,5 +1,5 @@
-from .models import Plan, Primary, Secondary, Tertiary
 from django import forms
+from .models import Plan, Primary, Secondary, Tertiary
 
 
 class PlanForm(forms.ModelForm):

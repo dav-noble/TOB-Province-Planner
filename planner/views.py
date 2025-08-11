@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 from .models import Plan
 from .forms import (
     PlanForm,
@@ -13,8 +15,7 @@ from .forms import (
     TertiaryForm4,
     TertiaryForm5,
 )
-from django.contrib import messages
-from django.http import HttpResponseRedirect
+
 
 
 # Create your views here.
