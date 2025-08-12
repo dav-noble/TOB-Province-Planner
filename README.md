@@ -10,6 +10,13 @@ Further development of the project would implement an optimisation tool, to auto
 
 The deployed site can be viewed <a href="https://tob-province-planner-4fc3e7628529.herokuapp.com/">here</a>.
 
+### Languages used in this project
+
+HTML
+CSS
+Javascript
+Python
+
 ## User Experience Design
 
 ### Colour Palette
