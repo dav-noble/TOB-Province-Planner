@@ -8,6 +8,8 @@ Provinces are a key part of the game, providing food for armies, income, and man
 
 Further development of the project would implement an optimisation tool, to automatically suggest an ideal set of buildings to optimise for example, food or income.
 
+The deployed site can be viewed <a href="https://tob-province-planner-4fc3e7628529.herokuapp.com/">here</a>.
+
 ## User Experience Design
 
 ### Colour Palette
@@ -134,7 +136,8 @@ A review of the user stories for this project. The MVP has been achieved, with f
 5. Create a Procfile in the root directory of your project with the code ```web: gunicorn (proj_name).wsgi```
 6. Add deployed app to ALLOWED_HOSTS in settings.py file
 7. Connect Heroku to the git repository in the Deploy tab, choose GitHub as the deployment method and search for the GitHub repository
-8. Inside the resources tab, ensure the project is using an Eco-Dyno and delete any Postgres DB addons
+8. Manually deploy the the branch
+9. Inside the resources tab, ensure the project is using an Eco-Dyno and delete any Postgres DB addons
 
 ## AI Implementation
 
