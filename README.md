@@ -140,7 +140,7 @@ A review of the user stories for this project. The MVP has been achieved, with f
 2. Create a new app
 3. On the 'settings' tab under Config vars, add the DATABASE_URL and SECRET_KEY
 4. Install web server gunicorn and freeze to requirements.txt
-5. Create a Procfile in the root directory of your project with the code ```web: gunicorn (proj_name).wsgi```
+5. Create a Procfile in the root directory of your project with the code ```web: gunicorn "proj_name".wsgi```
 6. Add deployed app to ALLOWED_HOSTS in settings.py file
 7. Connect Heroku to the git repository in the Deploy tab, choose GitHub as the deployment method and search for the GitHub repository
 8. Manually deploy the the branch
